@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Ily</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: black;
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            z-index: 1000;
+        }
+
+        .reason {
+            font-size: 1.5em;
+            text-align: center;
+            z-index: 1000;
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70%;
+        }
+
+        .refresh-text {
+            margin-top: -44px;
+            font-size: 0.6em;
+            text-align: center;
+            z-index: 1000;
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .heart {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="red"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>');
+            background-size: cover;
+            background-repeat: no-repeat;
+            animation: moveHeart linear infinite;
+        }
+
+        @keyframes moveHeart {
+            from {
+                transform: translateY(100vh) translateX(0) scale(0.5);
+            }
+            to {
+                transform: translateY(-100vh) translateX(0) scale(1);
+            }
+        }
+
+        .buttons {
+            margin-top: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 20px;
+        }
+
+        .buttons a {
+            color: #FF6347;
+            text-decoration: underline;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.2em;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .buttons a:hover {
+            color: #FF4500;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Why I Love You</h1>
+
+    <div class="reason" id="reason"></div>
+    <div class="refresh-text">refresh page for another reason <3</div>
+
+    <div class="buttons">
+        <a href="index.html">Home.</a>
+        <a href="notes.html">Notes.</a>
+    </div>
+
+    <script>
+        const reasons = [
+"You make me feel truly loved every day",
+"You bring so much joy and worth into my life",
+"You understand me like no one else",
+"You are always kind and reassuring",
+"You make everything feel effortless when we're together",
+"You care for me even when I don’t understand why",
+"You make me feel special and appreciated",
+"You are my source of comfort and happiness",
+"You trust me with your deepest thoughts",
+"You make me feel safe and secure",
+"You are creative and talented, and I love your drawings",
+"You always try your best to make me happy",
+"You make me feel like the luckiest person in the world",
+"You are sweet, nerdy, and adorable",
+"You are always there for me, no matter what",
+"You make me feel like I can be my true self with you",
+"You have the cutest voice that I love hearing",
+"You are so thoughtful and considerate",
+"You make me feel valued and important",
+"You are always supportive, even when I don’t deserve it",
+"You make me feel like I’m the most special person ever",
+"You are patient and understanding with everything I do",
+"You are always willing to stay up late just to talk to me",
+"You make me feel like everything will be okay",
+"You are always finding new ways to show you care",
+"You are the most amazing person I’ve ever met",
+"You are incredibly loving and supportive",
+"You are always making me smile, even when I don’t want to",
+"You make me feel like the happiest person alive",
+"You are always thinking of me, even when you’re busy",
+"You make me feel truly loved and appreciated every day",
+"You make me feel more loved than anyone else I've ever met",
+"You bring so much worth to my life",
+"You are understanding and loving",
+"You are everything I want and more",
+"You care about me so much, even when I don't understand it",
+"You make me feel loved every day",
+"You reassure me whenever I feel bad about something",
+"You make sure I am as happy and healthy as I can be",
+"You try as hard as you can to be the best girlfriend ever",
+"You were there for me even when no one else was",
+"You make me feel like the happiest boy ever",
+"You are always there, even if it means staying up late or hiding from your parents to talk to me",
+"You are so cute and adorable",
+"You make it easy for me to tell you anything",
+"You make everything feel effortless and fluid",
+"You comfort me and make me feel better about my problems",
+"You trust me and share your life with me",
+"You are talkative and easy to talk to",
+"You make me feel special",
+"You are talented and creative, and I adore your drawings",
+"You make me feel safe and loved",
+"You are sweet and nerdy, which I love a lot",
+"You have the cutest voice and personality",
+"You are the sweetest girl I've ever met",
+"You make me feel like I can truly be myself",
+"You make me feel like the most special boy in the world",
+"You reassure me and make me feel valued and appreciated",
+"You are always kind and nice to me",
+"You make me feel special and loved",
+"You are amazing, and I love you with all my heart"
+        ];
+
+        function displayRandomReason() {
+            const reasonElement = document.getElementById("reason");
+            const randomIndex = Math.floor(Math.random() * reasons.length);
+            reasonElement.textContent = reasons[randomIndex];
+        }
+
+        displayRandomReason();
+
+        const body = document.body;
+
+        function spawnHeart(initial = false) {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+
+            if (initial) {
+                heart.style.top = `${Math.random() * 100}vh`;
+                heart.style.left = `${Math.random() * 100}vw`;
+            } else {
+                heart.style.top = `100vh`;
+                heart.style.left = `${Math.random() * 100}vw`;
+            }
+
+            heart.style.animationDuration = `${Math.random() * 20 + 30}s`;
+            heart.style.opacity = Math.random();
+            body.appendChild(heart);
+
+            // Remove the heart when it goes off-screen
+            setTimeout(() => {
+                heart.remove();
+            }, 50000); // 50s to match the animation duration
+        }
+
+        // Spawn a large number of hearts at the start
+        for (let i = 0; i < 150; i++) {
+            spawnHeart(true);
+        }
+
+        // Continue to spawn hearts at regular intervals
+        setInterval(() => spawnHeart(false), 300); // Every 300ms
+    </script>
+
+</body>
+</html>

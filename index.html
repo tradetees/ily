@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reasons I Love You</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            background: black;
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .ascii-art {
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            margin-bottom: 20px;
+            white-space: pre;
+            z-index: 1000;
+        }
+
+        .heart {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="red"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>');
+            background-size: cover;
+            background-repeat: no-repeat;
+            animation: moveHeart linear infinite;
+        }
+
+        @keyframes moveHeart {
+            from {
+                transform: translateY(100vh) translateX(0) scale(0.5);
+            }
+            to {
+                transform: translateY(-100vh) translateX(0) scale(1);
+            }
+        }
+
+        .counter {
+            font-size: 0.6em;
+            text-align: center;
+            margin-bottom: px;
+            margin-top: -87px;
+            z-index: 1000;
+        }
+
+        .buttons {
+            margin-top: 0;
+            z-index: 1000;
+            display: flex;
+            gap: 20px;
+        }
+
+        .buttons a {
+            color: #FF6347;
+            text-decoration: underline;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.2em;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .buttons a:hover {
+            color: #FF4500;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="ascii-art">
+<pre>                                                                                                                                                            
+      _|_|_|      _|                                                                    
+        _|        _|    _|_|    _|      _|    _|_|        _|    _|    _|_|    _|    _|  
+        _|        _|  _|    _|  _|      _|  _|_|_|_|      _|    _|  _|    _|  _|    _|  
+        _|        _|  _|    _|    _|  _|    _|            _|    _|  _|    _|  _|    _|  
+      _|_|_|      _|    _|_|        _|        _|_|_|        _|_|_|    _|_|      _|_|_|  
+                                                                _|                      
+                                                            _|_|                        </pre>
+    </div>
+
+    <div class="counter">
+        <p id="counter"></p>
+    </div>
+
+    <div class="buttons">
+        <a href="notes.html">Notes.</a>
+        <a href="whyily.html">Why ily.</a>
+    </div>
+
+    <script>
+        function updateCounter() {
+            const startDate = new Date("2024-05-27");
+            const currentDate = new Date();
+
+            const diffTime = Math.abs(currentDate - startDate);
+            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+            const counterElement = document.getElementById("counter");
+            counterElement.innerHTML = `${diffDays} days together`;
+        }
+
+        updateCounter();
+        setInterval(updateCounter, 1000 * 60 * 60 * 24); // Update every day
+
+        const body = document.body;
+
+        function spawnHeart(initial = false) {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+
+            if (initial) {
+                heart.style.top = `${Math.random() * 100}vh`;
+                heart.style.left = `${Math.random() * 100}vw`;
+            } else {
+                heart.style.top = `100vh`;
+                heart.style.left = `${Math.random() * 100}vw`;
+            }
+
+            heart.style.animationDuration = `${Math.random() * 20 + 30}s`;
+            heart.style.opacity = Math.random();
+            body.appendChild(heart);
+
+            // Remove the heart when it goes off-screen
+            setTimeout(() => {
+                heart.remove();
+            }, 50000); // 50s to match the animation duration
+        }
+
+        // Spawn a large number of hearts at the start
+        for (let i = 0; i < 150; i++) {
+            spawnHeart(true);
+        }
+
+        // Continue to spawn hearts at regular intervals
+        setInterval(() => spawnHeart(false), 300); // Every 300ms
+    </script>
+</body>
+</html>

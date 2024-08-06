@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes for You</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: black;
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            z-index: 1000;
+        }
+
+        .search-bar {
+            margin-bottom: 20px;
+            z-index: 1000;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            border-radius: 5px;
+            border: 1px solid #FF6347;
+            color: white;
+            background: transparent;
+        }
+
+        .note-container {
+          width: 70%;
+          margin-bottom: 40px;
+          padding: 20px;
+          background: rgba(255, 255, 255, 0.05); /* Semi-transparent background */
+          border-radius: 10px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Soft shadow */
+          backdrop-filter: blur(5px); /* Blur effect */
+          transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+          scroll-margin-top: 80px;
+         z-index: 1000;
+        }
+
+        .note-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #FF6347;
+        }
+
+        .note-date {
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            color: #AAAAAA;
+        }
+
+        .note-content {
+            font-size: 1.2em;
+            white-space: pre-wrap;
+        }
+
+        .heart {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="red"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>');
+            background-size: cover;
+            background-repeat: no-repeat;
+            animation: moveHeart linear infinite;
+        }
+
+        .buttons {
+            margin-top: -40px;
+            z-index: 1000;
+            display: flex;
+            gap: 20px;
+            margin-bottom:14px;
+            margin-top: -10px;
+        }
+
+        .buttons a {
+            color: #FF6347;
+            text-decoration: underline;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.2em;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .buttons a:hover {
+            color: #FF4500;
+            transform: scale(1.1);
+        }
+        
+
+        @keyframes moveHeart {
+            from {
+                transform: translateY(100vh) translateX(0) scale(0.5);
+            }
+            to {
+                transform: translateY(-100vh) translateX(0) scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Notes for You</h1>
+
+    <div class="search-bar">
+        <input type="text" id="noteSearch" placeholder="Search notes..." onkeyup="searchNotes()">
+    </div>
+
+    <div class="buttons">
+        <a href="index.html">Back Home</a>
+        <a href="whyily.html">Why ily.</a>
+    </div>
+
+    <div class="note-container">
+        <div class="note-title">National Girlfriend Day Note</div>
+        <div class="note-date">August 1, 2024</div>
+        <div class="note-content">
+Hey Kathy:D I hope your having an awesome girlfriend day and also I’m writing this to you be your my girlfriend:D and so I just wanna tell you how much you mean to me Kathy, you mean a lot to me you brought so much more worth to my life you make me feel more loved then any other person I’ve ever meant I love you so so so much, you’ve made me feel so many new emotions I’ve never felt before and I’m glad I get to feel them with you because of how understanding and loving you are, your litterally everything and I want and more Kathy I couldn’t think of a more perfect girl I’m so glad I get to be your boyfriend :)
+
+Love,
+Boston
+    </div>
+    </div>
+    
+    <div class="note-container">
+        <div class="note-title">Sleep Note 2</div>
+        <div class="note-date">July 27, 2024</div>
+        <div class="note-content">
+Hey Kathy so uhm I know your asleep but I couldn’t fall asleep and now I’m feeling sleepy so I’m making you this text :D I just want to remind that I love you Kathy you mean so much to me and even if you don’t believe me I wouldn’t change a single  about you I love everything single inch of you and your everything I could have ever imagined and more your such a blessing you care so much about me sometimes and I don’t even understand it, you made me feel loved when I didn’t think I would ever get to feel it and you somehow make me feel it everyday with you even trying and I want yo tell you that appreciate you more then you know and I love you with my whole heart and I truly love you for you are:)❤️
+Anyways my fuckin eyes burn goodnight:D
+    </div>
+    </div>
+        
+    <div class="note-container">
+        <div class="note-title">Sleep Note 1</div>
+        <div class="note-date">July 14, 2024</div>
+        <div class="note-content">
+I know your asleep but I just wanted to remind you I really truly love you Kathy with all my heart I love so much more then anyone I’ve ever talked with your literally the most perfect girl Kathy there isn’t a single thing I would change about you not one single thing I love everything about you even the things your insecure about I don’t care whatever it is Kathy I’ve grown to love everything about including your deepest insecurities I hope I don’t ever have to find anyone like you ever again because I don’t think I ever will your the nice kindest girl I’ve talked with I can only hope good things for you, you may not be perfect at times and I know you feel that but you will always be mine kayhy:)
+    </div>
+    </div>
+    
+    <div class="note-container">
+        <div class="note-title">Birthday Note</div>
+        <div class="note-date">July 3, 2024</div>
+        <div class="note-content">
+Hey Kathy! 
+
+I'm writing this to tell you all my feelings, i'm really bad at expressing them sometimes so i'm going to try my best, kathy you mean the world to me you’re always kind and nice to me and that makes me feel really special you make me feel like the most special boy im so glad i'm finally with you and someone that genuinely cares about me like you I mean you care about me so much I don’t even understand it sometimes sometimes I feel like I don't even deserve you but you always reassure me and I love that a lot you always reassure me whenever I feel bad about something and you always make sure that i’m as happy as I can be, and that's what i want to do to you I love reassuring you and loving you and doing literally anything to make sure you are as happy and healthy as you possibly can be and I want to make you the happiest girl in the world I want to give you everything your so amazing Kathy I love you more than anything you make me feel like the happiest boy ever you are always there even if means staying up late or hiding from your parents to talk to me you really try as hard as you can to be the best girlfriend ever your so much more then a girlfriend kathy even when we weren't dating you were the best friend to me even when no one else was you there were there for me and giving me all the love you could give me and I couldn't appreciate it more kathy I wish I could really be there for you to support you even more because I want to give you all the love you deserve and make you feel like the most special girl ever and give you all the love I can give kathy 
+            
+Anyways Kathy I really love you and I hope you never doubt that I will always be here for you no matter what there is nothing you can tell me to change my opinion on you that you are most perfect loving sweet girl ever and you really are kathy and I hope you can begin to realize how perfect you are and how much I really love you Kathy:)
+            
+Love,
+Boston
+    </div>
+    </div>
+    
+    <div class="note-container">
+        <div class="note-title">Lil Note</div>
+        <div class="note-date">June 25, 2024</div>
+        <div class="note-content">
+God your so fucking adorable I love you so much Kathy your actually so cute I’m losing me mind I love you so much please never stop being yourself your literally the most prefect prettiest girl ever I love you with all me heart:)
+    </div>
+    </div>
+
+    <div class="note-container">
+        <div class="note-title">Love Note</div>
+        <div class="note-date">may 28, 2024</div>
+        <div class="note-content">
+Dear kathy,
+
+To my Kathy, hey kathy I’m really glad I met you I know I’ve only known you for like a month but it feels like so much more than it actually is, but I really wanted to write this for you because I really appreciate you and you mean so much to me and I really want you to know that and feel that as much as I do, your so many things to me kathy you’re always so kind and understanding with me I feel I can tell you anything without judgment I’ve probably told you more stuff about me than anyone else before, and sometimes I really love about you so so so much is how you make everything so easy, you make it so easy for me to tell you anything and talking with you, it’s so amazing I love it so much I’ve never felt so fluid when talking with another person before, your so many things to be your like open window kathy I’ve felt so many new things with you, I learn so much about myself when I talk with you, like I didn’t know I was so talkative because I’ve never felt so cared that I could and it’s not just me your so talkative to and I love that so much I love listening you talk I could listen to you for hours, and you always match me like I never feel like your being bland or boring or dry because you never are, I really love that, a lot, it makes me feel really special, especially when I can’t feel that anywhere else, your so good comforting me kathy you make feel so much better about a lot of my problems, and omg there’s like a million more then I love you about, like how you feel safe and you trust me and tell me about what’s bothering you or some of the problems your facing and I really love talking and overcoming them with you, I really love when you tell be anything about your life or whatever’s going on, it makes me really happy when you tell me things and your comfortable with telling me things, I really like having that connection with you it’s really sweet when you feel like you can tell me anything, and I also really like yap about your interests it’s really cute and nerdy which I love alottt, and omg your draws I literally adore them so much I love them so much sometimes whenever I’m bored I’ll just look through them and smile, I really love your drawings a lot like sooo much especially when you just send me ones with me asking it’s really cute and even more when it’s us, I could say even more things I love about you but my brains hurts and can’t think but I hope you know how much I care and love about you kathy ❤️
+            
+Love, Boston:)     
+    </div>
+    </div>
+
+    
+    <div class="note-container">
+        <div class="note-title">Goodnight Note</div>
+        <div class="note-date">may 22, 2024</div>
+        <div class="note-content">
+Goodnight I love you kathy I’m so grateful to have you :) your adorable and I love you smsmsmmsmsmsmm your voice is so cute and your so cute your amazing and I care sm about you, your literally the sweetest girl I’ve ever met and I feel like I can tell you and anything and really be myself:) your amazing and I wish you could see yourself with my eyes so you could see how amazing and beautiful you really are:)  
+    </div>
+    </div>
+    <!-- Add more notes here, using similar structure -->
+
+    <script>
+        function searchNotes() {
+            const input = document.getElementById('noteSearch');
+            const filter = input.value.toLowerCase();
+            const notes = document.getElementsByClassName('note-container');
+
+            for (let i = 0; i < notes.length; i++) {
+                const noteTitle = notes[i].getElementsByClassName('note-title')[0];
+                const noteContent = notes[i].getElementsByClassName('note-content')[0];
+                if (noteTitle.innerText.toLowerCase().includes(filter) || 
+                    noteContent.innerText.toLowerCase().includes(filter)) {
+                    notes[i].style.display = "";
+                } else {
+                    notes[i].style.display = "none";
+                }
+            }
+        }
+
+        const body = document.body;
+
+        function spawnHeart(initial = false) {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+
+            if (initial) {
+                heart.style.top = `${Math.random() * 100}vh`;
+                heart.style.left = `${Math.random() * 100}vw`;
+            } else {
+                heart.style.top = `100vh`;
+                heart.style.left = `${Math.random() * 100}vw`;
+            }
+
+            heart.style.animationDuration = `${Math.random() * 20 + 30}s`;
+            heart.style.opacity = Math.random();
+            body.appendChild(heart);
+
+            // Remove the heart when it goes off-screen
+            setTimeout(() => {
+                heart.remove();
+            }, 50000); // 50s to match the animation duration
+        }
+
+        // Spawn a large number of hearts at the start
+        for (let i = 0; i < 150; i++) {
+            spawnHeart(true);
+        }
+
+        // Continue to spawn hearts at regular intervals
+        setInterval(() => spawnHeart(false), 300); // Every 300ms
+    </script>
+
+</body>
+</html>
